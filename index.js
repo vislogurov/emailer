@@ -12,8 +12,10 @@ passport.use(new GoogleStrategy(
     // TODO: протестить возможность смены урла
     callbackURL: '/auth/google/callback'
   },
-  (accessToken) => {
-      console.log(accessToken);
+  (accessToken, refreshToken, profile, done) => {
+      console.log('accessToken', accessToken);
+      console.log('refreshToken', refreshToken);
+      console.log('profile', profile);
     }
   )
 );
@@ -21,6 +23,8 @@ passport.use(new GoogleStrategy(
 app.get('/auth/google', passport.authenticate('google', {
   scope: ['profile', 'email']
 }))
+
+app.get('/auth/google/callback', passport.authenticate('google'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
