@@ -12,11 +12,6 @@
     "server": "nodemon index.js",
     "client": "npm run start --prefix client"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx}": "eslint"
   },
