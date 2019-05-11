@@ -11,6 +11,10 @@ const Survey = mongoose.model('surveys');
 
 module.exports = (app) => {
 
+  app.get('/api/cors/',  (req, res) => {
+    res.json({ msg: 'This is CORS-enabled for all origins!' });
+  })
+
   app.get('/api/surveys/', requireLogin, async (req, res) => {
     const surveys = await Survey.find({ _user: req.user.id }).select({ recipients: false });
 

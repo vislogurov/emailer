@@ -15,7 +15,7 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
-app.use(cors());
+app.use('/api/cors/', cors());
 
 app.use(bodyParser.json());
 app.use(
