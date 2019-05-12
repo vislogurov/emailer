@@ -27,7 +27,7 @@
 | stripePublishableKey | [Учётные данные](https://stripe.com/docs/keys) для использования Stripe                                         |
 | stripeSecretKey      | [Учётные данные](https://stripe.com/docs/keys) для использования Stripe                                         |
 | sendGridKey          | [Учётные данные](https://app.sendgrid.com/settings/api_keys) для испльзования SendGrid                           |
-| redirectDomain       | Адрес страницы, на которую редиректит пользователя, кликнувшего по ссылке в письме `http://localhost:3000 || адрес продового сервака, например на Heroku`                          |
+| redirectDomain       | Адрес страницы, на которую редиректит пользователя, кликнувшего по ссылке в письме http://localhost:3000 `||` адрес продового сервака, например на Heroku`                          |
 
 Для работы в продовом окружении таким же образом, но через *__переменные окружения__*, добавляются ключи в `/config/prod.js`, например :
 
