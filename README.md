@@ -4,8 +4,27 @@
      src="https://pp.userapi.com/swfdZOFrAyZIfSRxSCXkgxtaMGpfdyFxyGvvCg/ONq07n9SUDI.jpg">
 
 
-Почтольер – это сервис для рассылки писем.
+Почтольер – это сервис для создания рассылки писем.
 
 Под капотом:
 * Фронтенд на [CRA](https://github.com/facebook/create-react-app) + [Redux](https://redux.js.org/) + [ReduxForm](https://redux-form.com/). В качестве средства стилизации использован [materializecss](https://materializecss.com/)
 * Бэкенд на Node + [mongoose](https://mongoosejs.com/) + [MongoDB](https://www.mongodb.com/)
+* Авторизация через  Google Account с использованием [PassportJS](http://www.passportjs.org/packages/passport-google-oauth20/)
+* [Stripe](https://stripe.com/) – для эмуляции работы платёжных систем
+* [Sendgrid](https://sendgrid.com/) – сервис для сбора аналитики почтовых рассылок
+
+## Пролог
+
+Приложение может работать, как в продовом, так и в локальных окружениях. По этой причине и из соображений безопасности (чтобы в репозиторий не попали персональные данные в т.ч пароли от БД), созданы определённые требования к стуктуре приложения:
+- в `/config` нужно создать файл `key.js`  со следующими ключами:
+
+| Ключ                 | Значение ключа                                                                                               |
+|----------------------|--------------------------------------------------------------------------------------------------------------|
+| googleClientID       | Учётные данные для использования Google API. Создаются [тут](https://console.developers.google.com/)         |
+| googleClientSecret   | Учётные данные для использования Google API. Создаются [тут](https://console.developers.google.com/)         |
+| mongoURI             | Путь к базе данных, типа `mongodb+srv://<userName>:<password>@emailer-u24fp.mongodb.net/test?retryWrites=true` |
+| cookieKey            | Уникальный набор символов для создания куки в [cookie-session](https://github.com/expressjs/cookie-session#keys)              |
+| stripePublishableKey | [Учётные данные](https://stripe.com/docs/keys) для использования Stripe                                         |
+| stripeSecretKey      | [Учётные данные](https://stripe.com/docs/keys) для использования Stripe                                         |
+| sendGridKey          | []Учётные данные](https://app.sendgrid.com/settings/api_keys) для испльзования SendGrid                           |
+| redirectDomain       | Адрес страницы, на которую редиректит пользователя, кликнувшего по ссылке в письме `http://localhost:3000 || адрес продового сервака, например на Heroku`                          |
