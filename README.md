@@ -26,5 +26,13 @@
 | cookieKey            | Уникальный набор символов для создания куки в [cookie-session](https://github.com/expressjs/cookie-session#keys)              |
 | stripePublishableKey | [Учётные данные](https://stripe.com/docs/keys) для использования Stripe                                         |
 | stripeSecretKey      | [Учётные данные](https://stripe.com/docs/keys) для использования Stripe                                         |
-| sendGridKey          | []Учётные данные](https://app.sendgrid.com/settings/api_keys) для испльзования SendGrid                           |
+| sendGridKey          | [Учётные данные](https://app.sendgrid.com/settings/api_keys) для испльзования SendGrid                           |
 | redirectDomain       | Адрес страницы, на которую редиректит пользователя, кликнувшего по ссылке в письме `http://localhost:3000 || адрес продового сервака, например на Heroku`                          |
+
+Для работы в продовом окружении таким же образом, но через *переменные окружения*, добавляются ключи в `/config/prod.js`, например :
+
+| Ключ                 | Значение ключа                                                                                               |
+|----------------------|--------------------------------------------------------------------------------------------------------------|
+| googleClientID       | process.env.GOOGLE_CLIENT_ID         |
+
+*ВАЖНО*: `key.js` не коммитить! Он нужен только для локальное разработки и будет содержать ваши персональные данные.
