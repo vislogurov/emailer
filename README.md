@@ -61,5 +61,14 @@ __ВАЖНО__: `key.js` не коммитить! Он нужен только �
 
 Действия по кнопкам:
 
-- <img align="right" width="86" height="36"
-     src="./images/cancel.png" style="vertical-align: middle"> - возвращаемся к списку рассылок
+- <img align="left" width="86" height="36"
+     src="./images/cancel.png" style="vertical-align: middle"> – возвращаемся к списку рассылок
+
+- <img align="left" width="86" height="36"
+    src="./images/next.png" style="vertical-align: middle"> – смотрим на превью рассылки
+
+- <img align="left" width="86" height="36"
+    src="./images/back.png" style="vertical-align: middle"> – возвращаемся к заполнению формы, если нужно что-доработать (данные сохранаются при `unmount`'е)
+
+- <img align="left" width="86" height="36"
+    src="./images/send.png" style="vertical-align: middle"> – если всё ок, то отправляем рассылку.
