@@ -116,17 +116,12 @@ __ВАЖНО__: `key.js` не коммитить! Он нужен только �
 
 ## API
 
-| URL            | Method | Request | Response    |
-|----------------|--------|---------|-------------|
-| `/api/surveys` | GET    |         | [...SURVEY] |
-|                |        |         |             |
-|                |        |         |             |
-|                |        |         |             |
-|                |        |         |             |
-|                |        |         |             |
-|                |        |         |             |
-|                |        |         |             |
-|                |        |         |             |
+| URL                     | Method | Request | Response        |
+|-------------------------|--------|---------|-----------------|
+| `/api/surveys`          | GET    |         | [...SURVEY]     |
+| `/api/surveys`          | POST   |         | [...NEW_SURVEY] |
+| `/api/surveys/webhooks` | POST   |         | [...RECORD]     |
+| `/api/stripe`           | POST   |         | [...STRIPE]     |
 
 SURVEY
 ```
@@ -140,5 +135,38 @@ SURVEY
   "_user":"5cc45feceb67ba1a34c41137",
   "dateSent":"2019-05-04T09:32:16.571Z",
   "__v":0
+}
+```
+
+NEW_SURVEY
+```
+{
+  "title":"sdcdssc",
+  "subject":"dcd44",
+  "body":"dssdscs",
+  "_user":"5cc45feceb67ba1a34c41137",
+  "dateSent":"2019-05-04T09:32:16.571Z",
+}
+```
+
+STRIPE // обновлем информацию по балансу пльзователя
+
+```
+{
+  "credits":11,
+  "_id":"5cc45feceb67ba1a34c41137",
+  "googleId":"112223552478309392416",
+  "__v":0
+}
+```
+
+RECORD // получаем ответ вебхука, убираем дублирующиеся клики, делаем запись в БД
+```
+{
+  ...
+  email: 'vislogurov@gmail.com',
+  surveyId: '4584hffuh3ifuh384r3934uf3'
+  choice:'yes'
+  ...
 }
 ```
