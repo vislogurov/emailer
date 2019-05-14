@@ -1,12 +1,16 @@
 import React from 'react';
+import img from './zombie.png'
 
 const Landing = () => {
   return (
     <div style={{ textAlign: 'center' }}>
       <h1>
-        Emaily!
+        Почтольер!
       </h1>
-      Collect feedback form your users
+      Отправь почту и получи фидбек от тех, кто осмелился эту почту прочитать
+    <div>
+      <img src={img} />
+    </div>
     </div>
   );
 };
